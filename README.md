@@ -5,7 +5,7 @@ Details unter https://janoschjanosch.github.io/arinacoacht_questionnaire/
 # Aufruf der Fragebögen
 https://janoschjanosch.github.io/arinacoacht_questionnaire/DATEINAME.HTML
 
-also zB https://janoschjanosch.github.io/arinacoacht_questionnaire/arinacoacht_Discovery_Fragebogen.html
+also zB https://janoschjanosch.github.io/arinacoacht_questionnaire/Discovery_DE.html
 
 
 # Details zum Repo
