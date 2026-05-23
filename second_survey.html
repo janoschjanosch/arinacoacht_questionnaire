@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coaching Discovery — Vorbereitungsfragebogen</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF8F3;
+    --ink: #1A1814;
+    --ink-light: #6B6860;
+    --gold: #C4A35A;
+    --gold-light: #EEE0C0;
+    --gold-pale: #FBF6EC;
+    --border: rgba(26,24,20,0.12);
+    --border-strong: rgba(26,24,20,0.25);
+    --teal: #2A6B6B;
+    --teal-light: #E3EFEF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; font-size: 15px; }
+  .page-wrap { max-width: 760px; margin: 0 auto; padding: 56px 40px 72px; }
+
+  .header { text-align: center; margin-bottom: 48px; padding-bottom: 36px; border-bottom: 1px solid var(--border); position: relative; }
+  .header::after { content: ''; position: absolute; bottom: -1px; left: 50%; transform: translateX(-50%); width: 60px; height: 2px; background: var(--gold); }
+  .eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  h1 { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; line-height: 1.15; margin-bottom: 14px; }
+  h1 em { font-style: italic; color: var(--teal); }
+  .header-sub { font-size: 14px; color: var(--ink-light); max-width: 460px; margin: 0 auto; line-height: 1.8; }
+
+  .client-block { background: var(--gold-pale); border: 1px solid var(--gold-light); border-radius: 12px; padding: 24px 28px; margin-bottom: 44px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px 28px; }
+  .client-field label { display: block; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+  .client-field .line { border: none; border-bottom: 1px solid var(--border-strong); background: transparent; width: 100%; padding: 5px 0; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--ink); outline: none; }
+  .client-field .line:focus { border-bottom-color: var(--teal); }
+
+  .section { margin-bottom: 44px; }
+  .section-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 22px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+  .section-num { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: var(--gold); line-height: 1; flex-shrink: 0; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 400; color: var(--ink); line-height: 1.2; }
+  .section-desc { font-size: 12px; color: var(--ink-light); margin-top: 3px; font-style: italic; }
+
+  .question-item { margin-bottom: 16px; padding: 18px 22px; background: white; border-radius: 10px; border: 1px solid var(--border); transition: border-color 0.2s; }
+  .question-item:hover { border-color: var(--border-strong); }
+  .question-label { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 10px; line-height: 1.5; }
+  .question-label .q-num { color: var(--gold); margin-right: 4px; }
+
+  textarea { width: 100%; border: none; border-bottom: 1px solid var(--border); background: transparent; resize: none; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 300; color: var(--ink); padding: 4px 0; outline: none; min-height: 44px; line-height: 1.8; }
+  textarea:focus { border-bottom-color: var(--teal); }
+  textarea.tall { min-height: 70px; }
+
+  .check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 10px; }
+  .check-item { display: flex; align-items: center; gap: 9px; padding: 9px 12px; border: 1px solid var(--border); border-radius: 8px; cursor: pointer; transition: all 0.15s; background: white; }
+  .check-item:hover { border-color: var(--teal); background: var(--teal-light); }
+  .check-item input[type="checkbox"] { width: 15px; height: 15px; accent-color: var(--teal); flex-shrink: 0; }
+  .check-item span { font-size: 13px; color: var(--ink); }
+
+  .scale-wrap { margin-top: 10px; }
+  .scale-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--ink-light); margin-bottom: 6px; }
+  .scale-options { display: flex; gap: 5px; }
+  .scale-options label { flex: 1; text-align: center; cursor: pointer; }
+  .scale-options input[type="radio"] { display: none; }
+  .scale-options .scale-btn { display: block; padding: 7px 2px; border: 1px solid var(--border); border-radius: 6px; font-size: 12px; color: var(--ink-light); transition: all 0.15s; background: white; }
+  .scale-options input[type="radio"]:checked + .scale-btn { background: var(--teal); color: white; border-color: var(--teal); font-weight: 500; }
+  .scale-options label:hover .scale-btn { border-color: var(--teal); color: var(--teal); }
+
+  .closing { text-align: center; padding: 36px 28px; background: white; border-radius: 12px; border: 1px solid var(--border); margin-top: 48px; }
+  .closing-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 300; margin-bottom: 10px; }
+  .closing p { color: var(--ink-light); font-size: 13px; max-width: 420px; margin: 0 auto 20px; }
+  .print-btn { display: inline-block; padding: 11px 28px; background: var(--teal); color: white; border: none; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 400; letter-spacing: 0.04em; cursor: pointer; transition: background 0.2s; }
+  .print-btn:hover { background: #1e5050; }
+
+  @media print {
+    body { background: white; font-size: 12px; }
+    .page-wrap { padding: 16px 28px; }
+    .print-btn { display: none; }
+    .question-item { break-inside: avoid; }
+    textarea { border-bottom: 1px solid #ccc; }
+    h1 { font-size: 30px; }
+  }
+  @media (max-width: 560px) {
+    h1 { font-size: 30px; }
+    .client-block, .check-grid { grid-template-columns: 1fr; }
+    .page-wrap { padding: 28px 18px 56px; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <header class="header">
+    <p class="eyebrow">Coaching · Discovery Coaching · DiscoveryCoaching · DiscoveryCoaching · DiscoveryCoaching · DiscoveryCoaching · Discovery</p>
+    <h1>Dein Weg beginnt<br>mit <em>Klarheit</em></h1>
+    <p class="header-sub">Nimm dir 20–30 Minuten für diese Fragen. Es gibt kein Richtig oder Falsch — nur deine ehrliche Perspektive. Deine Antworten helfen uns, tief und gezielt zu arbeiten.</p>
+  </header>
+
+  <div class="client-block">
+    <div class="client-field">
+      <label>Dein Name</label>
+      <input class="line" type="text" placeholder="Vorname Nachname">
+    </div>
+    <div class="client-field">
+      <label>Datum</label>
+      <input class="line" type="text" id="datum-field">
+    </div>
+    <div class="client-field">
+      <label>Session</label>
+      <input class="line" type="text" placeholder="z. B. Session 1">
+    </div>
+    <div class="client-field">
+      <label>Coach</label>
+      <input class="line" type="text" placeholder="Name">
+    </div>
+  </div>
+
+  <!-- SECTION 1: Werte & Identität -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <div>
+        <h2 class="section-title">Werte & Identität</h2>
+        <p class="section-desc">Wer du bist — jenseits von Rollen und Erwartungen</p>
+      </div>
+    </div>
+
+    <div class="question-item">
+      <p class="question-label"><span class="q-num">1.</span> Welche drei Werte leiten dein Leben am stärksten? Was bedeuten sie dir?</p>
+      <textarea placeholder=""></textarea>
+    </div>
+
+    <div class="question-item">
+      <p class="question-label"><span class="q-num">2.</span> Beschreibe dich in einem Satz: Wer bist du?</p>
+      <textarea placeholder=""></textarea>
+    </div>
+
+    <div class="question-item">
+      <p class="question-label"><span class="q-num">3.</span> Welchen Teil von dir versteckst du meistens — und was würde es bedeuten, ihn zu zeigen?</p>
+      <textarea placeholder=""></textarea>
+    </div>
+
+    <div class="question-item">
+      <p class="question-label"><span class="q-num">4.</span> Was ist eine Wahrheit über dich, die andere oft missverstehen?</p>
+      <textarea placeholder=""></textarea>
+    </div>
+
+    <div class="question-item">
+      <p class="question-label"><span class="q-num">5.</span> Was sind deine absoluten Non-Negotiables im Leben — privat wie beruflich?</p>
+      <textarea placeholder=""></textarea>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Situation & Ziele -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <div>
+        <h2 class="section-title">Aktuelle Situation & Ziele</h2>
+        <p class="section-desc">Wo stehst du — und was willst du wirklich?</p>
+      </div>
+    </div>
+
+    <div class="question-item">
+      <p class="question-label"><span class="q-num">6.</span> Was hat dich jetzt zum Coaching geführt — was ist der eigentliche Anlass?</p>
+      <textarea class="tall" placeholder=""></textarea>
+    </div>
+
+    <div class="question-item">
+      <p class="question-label"><span class="q-num">7.</span> Wie definierst du Erfolg — auf eine Weise, die wirklich zu dir passt?</p>
+      <textarea placeholder=""></textarea>
+    </div>
+
+    <div class="question-item">
+      <p class="question-label"><span class="q-num">8.</span> In welchen Lebensbereichen willst du arbeiten?</p>
+      <div class="check-grid">
+        <label class="check-item"><input type="checkbox"><span>Beruf & Karriere</span></label>
+        <label class="check-item"><input type="checkbox"><span>Beziehungen & Familie</span></label>
+        <label class="check-item"><input type="checkbox"><span>Persönliche Entwicklung</span></label>
+        <label class="check-item"><input type="checkbox"><span>Gesundheit & Energie</span></label>
+        <label class="check-item"><input type="checkbox"><span>Finanzen</span></label>
+        <label class="check-item"><input type="checkbox"><span>Sinn & Lebenszweck</span></label>
+        <label class="check-item"><input type="checkbox"><span>Kreativität & Ausdruck</span></label>
+        <label class="check-item"><input type="checkbox"><span>Sonstiges</span></label>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Blockaden -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <div>
+        <h2 class="section-title">Innere Blockaden</h2>
+        <p class="section-desc">Was steht zwischen dir und dem, was du willst?</p>
+      </div>
+    </div>
+
+    <div class="question-item">
+      <p class="question-label"><span class="q-num">9.</span> Welche Geschichte erzählst du dir über dich selbst, die dich limitiert?</p>
+      <textarea placeholder="z. B. „Ich bin nicht gut genug für …" / „Ich schaffe das nicht, weil …""></textarea>
+    </div>
+
+    <div class="question-item">
+      <p class="question-label"><span class="q-num">10.</span> Was würdest du tun, wenn du garantiert nicht scheitern könntest?</p>
+      <textarea placeholder=""></textarea>
+    </div>
+
+    <div class="question-item">
+      <p class="question-label"><span class="q-num">11.</span> Wo sabotierst du dich — und warum denkst du, dass das so ist?</p>
+      <textarea placeholder=""></textarea>
+    </div>
+
+    <div class="question-item">
+      <p class="question-label"><span class="q-num">12.</span> Wie würde sich dein Leben verändern, wenn dir die Meinung anderer egal wäre?</p>
+      <textarea placeholder=""></textarea>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Lebensrad -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <div>
+        <h2 class="section-title">Lebensrad</h2>
+        <p class="section-desc">Wie erfüllt bist du heute — ehrlich betrachtet?</p>
+      </div>
+    </div>
+
+    <div style="display: grid; gap: 12px;">
+      <div class="question-item" style="padding: 14px 18px;"><p class="question-label" style="margin-bottom:8px;">Beruf & Karriere</p><div class="scale-wrap"><div class="scale-labels"><span>Wenig erfüllt · 1</span><span>10 · Vollständig erfüllt</span></div><div class="scale-options"><label><input type="radio" name="s_job" value="1"><span class="scale-btn">1</span></label><label><input type="radio" name="s_job" value="2"><span class="scale-btn">2</span></label><label><input type="radio" name="s_job" value="3"><span class="scale-btn">3</span></label><label><input type="radio" name="s_job" value="4"><span class="scale-btn">4</span></label><label><input type="radio" name="s_job" value="5"><span class="scale-btn">5</span></label><label><input type="radio" name="s_job" value="6"><span class="scale-btn">6</span></label><label><input type="radio" name="s_job" value="7"><span class="scale-btn">7</span></label><label><input type="radio" name="s_job" value="8"><span class="scale-btn">8</span></label><label><input type="radio" name="s_job" value="9"><span class="scale-btn">9</span></label><label><input type="radio" name="s_job" value="10"><span class="scale-btn">10</span></label></div></div></div>
+      <div class="question-item" style="padding: 14px 18px;"><p class="question-label" style="margin-bottom:8px;">Beziehungen & Familie</p><div class="scale-wrap"><div class="scale-labels"><span>Wenig erfüllt · 1</span><span>10 · Vollständig erfüllt</span></div><div class="scale-options"><label><input type="radio" name="s_rel" value="1"><span class="scale-btn">1</span></label><label><input type="radio" name="s_rel" value="2"><span class="scale-btn">2</span></label><label><input type="radio" name="s_rel" value="3"><span class="scale-btn">3</span></label><label><input type="radio" name="s_rel" value="4"><span class="scale-btn">4</span></label><label><input type="radio" name="s_rel" value="5"><span class="scale-btn">5</span></label><label><input type="radio" name="s_rel" value="6"><span class="scale-btn">6</span></label><label><input type="radio" name="s_rel" value="7"><span class="scale-btn">7</span></label><label><input type="radio" name="s_rel" value="8"><span class="scale-btn">8</span></label><label><input type="radio" name="s_rel" value="9"><span class="scale-btn">9</span></label><label><input type="radio" name="s_rel" value="10"><span class="scale-btn">10</span></label></div></div></div>
+      <div class="question-item" style="padding: 14px 18px;"><p class="question-label" style="margin-bottom:8px;">Gesundheit & Energie</p><div class="scale-wrap"><div class="scale-labels"><span>Wenig erfüllt · 1</span><span>10 · Vollständig erfüllt</span></div><div class="scale-options"><label><input type="radio" name="s_health" value="1"><span class="scale-btn">1</span></label><label><input type="radio" name="s_health" value="2"><span class="scale-btn">2</span></label><label><input type="radio" name="s_health" value="3"><span class="scale-btn">3</span></label><label><input type="radio" name="s_health" value="4"><span class="scale-btn">4</span></label><label><input type="radio" name="s_health" value="5"><span class="scale-btn">5</span></label><label><input type="radio" name="s_health" value="6"><span class="scale-btn">6</span></label><label><input type="radio" name="s_health" value="7"><span class="scale-btn">7</span></label><label><input type="radio" name="s_health" value="8"><span class="scale-btn">8</span></label><label><input type="radio" name="s_health" value="9"><span class="scale-btn">9</span></label><label><input type="radio" name="s_health" value="10"><span class="scale-btn">10</span></label></div></div></div>
+      <div class="question-item" style="padding: 14px 18px;"><p class="question-label" style="margin-bottom:8px;">Persönliche Entwicklung</p><div class="scale-wrap"><div class="scale-labels"><span>Wenig erfüllt · 1</span><span>10 · Vollständig erfüllt</span></div><div class="scale-options"><label><input type="radio" name="s_growth" value="1"><span class="scale-btn">1</span></label><label><input type="radio" name="s_growth" value="2"><span class="scale-btn">2</span></label><label><input type="radio" name="s_growth" value="3"><span class="scale-btn">3</span></label><label><input type="radio" name="s_growth" value="4"><span class="scale-btn">4</span></label><label><input type="radio" name="s_growth" value="5"><span class="scale-btn">5</span></label><label><input type="radio" name="s_growth" value="6"><span class="scale-btn">6</span></label><label><input type="radio" name="s_growth" value="7"><span class="scale-btn">7</span></label><label><input type="radio" name="s_growth" value="8"><span class="scale-btn">8</span></label><label><input type="radio" name="s_growth" value="9"><span class="scale-btn">9</span></label><label><input type="radio" name="s_growth" value="10"><span class="scale-btn">10</span></label></div></div></div>
+      <div class="question-item" style="padding: 14px 18px;"><p class="question-label" style="margin-bottom:8px;">Sinn & Lebenszweck</p><div class="scale-wrap"><div class="scale-labels"><span>Wenig erfüllt · 1</span><span>10 · Vollständig erfüllt</span></div><div class="scale-options"><label><input type="radio" name="s_purpose" value="1"><span class="scale-btn">1</span></label><label><input type="radio" name="s_purpose" value="2"><span class="scale-btn">2</span></label><label><input type="radio" name="s_purpose" value="3"><span class="scale-btn">3</span></label><label><input type="radio" name="s_purpose" value="4"><span class="scale-btn">4</span></label><label><input type="radio" name="s_purpose" value="5"><span class="scale-btn">5</span></label><label><input type="radio" name="s_purpose" value="6"><span class="scale-btn">6</span></label><label><input type="radio" name="s_purpose" value="7"><span class="scale-btn">7</span></label><label><input type="radio" name="s_purpose" value="8"><span class="scale-btn">8</span></label><label><input type="radio" name="s_purpose" value="9"><span class="scale-btn">9</span></label><label><input type="radio" name="s_purpose" value="10"><span class="scale-btn">10</span></label></div></div></div>
+      <div class="question-item" style="padding: 14px 18px;"><p class="question-label" style="margin-bottom:8px;">Finanzen</p><div class="scale-wrap"><div class="scale-labels"><span>Wenig erfüllt · 1</span><span>10 · Vollständig erfüllt</span></div><div class="scale-options"><label><input type="radio" name="s_fin" value="1"><span class="scale-btn">1</span></label><label><input type="radio" name="s_fin" value="2"><span class="scale-btn">2</span></label><label><input type="radio" name="s_fin" value="3"><span class="scale-btn">3</span></label><label><input type="radio" name="s_fin" value="4"><span class="scale-btn">4</span></label><label><input type="radio" name="s_fin" value="5"><span class="scale-btn">5</span></label><label><input type="radio" name="s_fin" value="6"><span class="scale-btn">6</span></label><label><input type="radio" name="s_fin" value="7"><span class="scale-btn">7</span></label><label><input type="radio" name="s_fin" value="8"><span class="scale-btn">8</span></label><label><input type="radio" name="s_fin" value="9"><span class="scale-btn">9</span></label><label><input type="radio" name="s_fin" value="10"><span class="scale-btn">10</span></label></div></div></div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Vision -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <div>
+        <h2 class="section-title">Deine Vision</h2>
+        <p class="section-desc">Wie sieht das Leben aus, das du wirklich willst?</p>
+      </div>
+    </div>
+
+    <div class="question-item">
+      <p class="question-label"><span class="q-num">13.</span> Wenn du dein ideales Leben frei gestalten könntest — wie würde es aussehen? Beschreibe es lebendig.</p>
+      <textarea class="tall" placeholder="Beziehungen, Arbeit, Ort, Tagesablauf, Gefühl …"></textarea>
+    </div>
+
+    <div class="question-item">
+      <p class="question-label"><span class="q-num">14.</span> Was wäre der eine mutige Schritt, den du in Richtung dieses Lebens tun könntest — heute?</p>
+      <textarea placeholder=""></textarea>
+    </div>
+
+    <div class="question-item">
+      <p class="question-label"><span class="q-num">15.</span> Was würde dein zukünftiges Ich dir heute sagen?</p>
+      <textarea placeholder=""></textarea>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Zusammenarbeit -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <div>
+        <h2 class="section-title">Unsere Zusammenarbeit</h2>
+        <p class="section-desc">Damit ich dich von Anfang an gut begleiten kann</p>
+      </div>
+    </div>
+
+    <div class="question-item">
+      <p class="question-label"><span class="q-num">16.</span> Was hat bei früheren Veränderungsversuchen funktioniert — und was nicht?</p>
+      <textarea placeholder="Eigene Vorhaben, frühere Coachings, Therapie …"></textarea>
+    </div>
+
+    <div class="question-item">
+      <p class="question-label"><span class="q-num">17.</span> Was brauchst du von mir als Coach?</p>
+      <div class="check-grid">
+        <label class="check-item"><input type="checkbox"><span>Direkte Herausforderung</span></label>
+        <label class="check-item"><input type="checkbox"><span>Wärme & Unterstützung</span></label>
+        <label class="check-item"><input type="checkbox"><span>Klare Struktur</span></label>
+        <label class="check-item"><input type="checkbox"><span>Raum & Stille</span></label>
+        <label class="check-item"><input type="checkbox"><span>Konkrete Werkzeuge</span></label>
+        <label class="check-item"><input type="checkbox"><span>Ungeschöntes Feedback</span></label>
+      </div>
+    </div>
+
+    <div class="question-item">
+      <p class="question-label"><span class="q-num">18.</span> Was willst du mir mitgeben, bevor wir beginnen?</p>
+      <textarea class="tall" placeholder="Alles ist willkommen."></textarea>
+    </div>
+  </section>
+
+  <div class="closing">
+    <p class="closing-title">Danke für deine Offenheit</p>
+    <p>Deine Antworten sind vertraulich und dienen ausschließlich unserer gemeinsamen Arbeit. Ich freue mich darauf, mit dir zu arbeiten.</p>
+    <button class="print-btn" onclick="window.print()">Als PDF speichern / Drucken</button>
+  </div>
+
+</div>
+<script>
+  const d = new Date();
+  document.getElementById('datum-field').placeholder = d.toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' });
+</script>
+</body>
+</html>
