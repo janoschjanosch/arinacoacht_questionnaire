@@ -1,4 +1,4 @@
-# arinacoacht_questionaire
+# arinacoacht_questionnaire
 Projekt, dass die Fragebögen für arinacoacht bereitstellt.
 Details unter https://janoschjanosch.github.io/arinacoacht_questionnaire/
 
