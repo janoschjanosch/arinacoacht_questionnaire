@@ -4,163 +4,424 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>Impressum & Datenschutz – https://janoschjanosch.github.io/arinacoacht_questionnaire/</title>
+  <title>Impressum & Datenschutz – arinacoacht</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --cream: #FAF8F3;
+      --ink: #1A1814;
+      --ink-light: #6B6860;
+      --gold: #C4A35A;
+      --gold-light: #EEE0C0;
+      --gold-pale: #FBF6EC;
+      --border: rgba(26,24,20,0.12);
+      --border-strong: rgba(26,24,20,0.25);
+      --teal: #2A6B6B;
+      --teal-light: #E3EFEF;
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f9f9f9;
-      color: #222;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
       line-height: 1.7;
-      padding: 2rem 1rem;
+      font-size: 15px;
     }
 
-    main {
-      max-width: 720px;
+    .page-wrap {
+      max-width: 760px;
       margin: 0 auto;
+      padding: 56px 40px 72px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
     }
 
     h1 {
-      font-size: 1.6rem;
-      margin-bottom: 0.4rem;
-      color: #111;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 14px;
     }
 
-    h2 {
-      font-size: 1.2rem;
-      margin: 1.4rem 0 0.4rem;
-      color: #333;
+    h1 em {
+      font-style: italic;
+      color: var(--teal);
+    }
+
+    .header-sub {
+      font-size: 14px;
+      color: var(--ink-light);
+      max-width: 460px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .section {
+      margin-bottom: 44px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 22px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 21px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .content-block {
+      padding: 18px 22px;
+      background: white;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--teal);
+      margin-bottom: 8px;
     }
 
     p {
       margin-bottom: 0.8rem;
+      font-size: 14px;
+      color: var(--ink);
+      line-height: 1.8;
     }
 
-    section {
-      background: #fff;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      padding: 2rem;
-      margin-bottom: 2rem;
+    ul {
+      padding-left: 1.4rem;
+      margin-bottom: 0.8rem;
     }
 
-    hr {
-      border: none;
-      border-top: 1px solid #e0e0e0;
-      margin: 1.5rem 0;
+    li {
+      font-size: 14px;
+      color: var(--ink);
+      line-height: 1.8;
+      margin-bottom: 4px;
     }
 
     a {
-      color: #0070f3;
+      color: var(--teal);
       text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
     }
 
     a:hover {
-      text-decoration: underline;
+      border-bottom-color: var(--teal);
     }
 
-    footer {
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.15s;
+    }
+
+    .nav-links a:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+      background: var(--teal-light);
+    }
+
+    .closing {
       text-align: center;
-      font-size: 0.8rem;
-      color: #999;
-      margin-top: 1rem;
+      padding: 36px 28px;
+      background: white;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      margin-top: 48px;
+    }
+
+    .closing p {
+      color: var(--ink-light);
+      font-size: 13px;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 560px) {
+      h1 { font-size: 30px; }
+      .page-wrap { padding: 28px 18px 56px; }
+      .nav-links { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
 <body>
-<main>
+<div class="page-wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="eyebrow">arinacoacht</div>
+    <h1>Impressum &<br><em>Datenschutz</em></h1>
+    <p class="header-sub">Transparenz und Verantwortung — alle rechtlichen Informationen auf einen Blick.</p>
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav-links">
+    <a href="#impressum">Impressum</a>
+    <a href="#datenschutz">Datenschutzerklärung</a>
+  </div>
 
   <!-- ==================== IMPRESSUM ==================== -->
-  <section id="impressum">
-    <h1>Impressum</h1>
-    <hr>
+  <div class="section" id="impressum">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <div>
+        <div class="section-title">Impressum</div>
+      </div>
+    </div>
 
-    <h2>Angaben gemäß § 5 TMG</h2>
-    <p>
-      Arina Bondar-Nehls<br>
-      Buckhörner Moor 18e<br>
-      22846 Norderstedt
-    </p>
+    <div class="content-block">
+      <h3>Angaben gemäß § 5 TMG</h3>
+      <p id="addr-block"></p>
+    </div>
 
-    <h2>Kontakt</h2>
-    <p>
-      Website: <a href="https://janoschjanosch.github.io/arinacoacht_questionnaire/" target="_blank" rel="noopener noreferrer">arinacoacht</a>
-    </p>
+    <div class="content-block">
+      <h3>Kontakt</h3>
+      <p>
+        E-Mail: <span id="email-impressum"></span><br>
+        Website: <a href="https://janoschjanosch.github.io/arinacoacht_questionnaire/" target="_blank" rel="noopener noreferrer">arinacoacht</a>
+      </p>
+    </div>
 
-    <h2>Haftungsausschluss</h2>
-    <p>
-      Die Inhalte dieser Seite wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit,
-      Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden.
-    </p>
-  </section>
+    <div class="content-block">
+      <h3>Haftungsausschluss</h3>
+      <p>
+        Die Inhalte dieser Seite wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit,
+        Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden.
+      </p>
+    </div>
+  </div>
 
   <!-- ==================== DATENSCHUTZ ==================== -->
-  <section id="datenschutz">
-    <h1>Datenschutzerklärung</h1>
-    <hr>
+  <div class="section" id="datenschutz">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <div>
+        <div class="section-title">Datenschutzerklärung</div>
+      </div>
+    </div>
 
-    <h2>1. Verantwortliche Stelle</h2>
-    <p>
-      Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br><br>
-      Arina Bondar-Nehls<br>
-      Buckhörner Moor 18e<br>
-      22846 Norderstedt
-    </p>
+    <div class="content-block">
+      <h3>1. Verantwortliche Stelle</h3>
+      <p>
+        Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br><br>
+        <span id="addr-dsgvo"></span><br>
+        E-Mail: <span id="email-dsgvo"></span>
+      </p>
+    </div>
 
-    <h2>2. Hosting via GitHub Pages</h2>
-    <p>
-      Diese Website wird über <strong>GitHub Pages</strong> gehostet, einem Dienst der GitHub, Inc.,
-      88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.
-    </p>
-    <p>
-      Wenn Sie diese Website aufrufen, verarbeitet GitHub Pages automatisch bestimmte technische Daten,
-      insbesondere:
-    </p>
-    <ul style="padding-left: 1.4rem; margin-bottom: 0.8rem;">
-      <li>IP-Adresse des anfragenden Geräts</li>
-      <li>Datum und Uhrzeit des Zugriffs</li>
-      <li>Aufgerufene Seite / URL</li>
-      <li>Browsertyp und Betriebssystem</li>
-      <li>Referrer-URL (zuvor besuchte Seite)</li>
-    </ul>
-    <p>
-      Diese Daten werden in sogenannten Server-Logfiles gespeichert. Die Verarbeitung erfolgt auf Basis
-      von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem sicheren und stabilen Betrieb
-      der Website). Auf diese Logfiles haben wir keinen direkten Einfluss.
-    </p>
-    <p>
-      Weitere Informationen zum Datenschutz bei GitHub finden Sie unter:<br>
-      <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement"
-         target="_blank" rel="noopener noreferrer">
-        https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement
-      </a>
-    </p>
+    <div class="content-block">
+      <h3>2. Hosting via GitHub Pages</h3>
+      <p>
+        Diese Website wird über <strong>GitHub Pages</strong> gehostet, einem Dienst der GitHub, Inc.,
+        88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.
+      </p>
+      <p>
+        Wenn Sie diese Website aufrufen, verarbeitet GitHub Pages automatisch bestimmte technische Daten,
+        insbesondere:
+      </p>
+      <ul>
+        <li>IP-Adresse des anfragenden Geräts</li>
+        <li>Datum und Uhrzeit des Zugriffs</li>
+        <li>Aufgerufene Seite / URL</li>
+        <li>Browsertyp und Betriebssystem</li>
+        <li>Referrer-URL (zuvor besuchte Seite)</li>
+      </ul>
+      <p>
+        Diese Daten werden in sogenannten Server-Logfiles gespeichert. Die Verarbeitung erfolgt auf Basis
+        von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem sicheren und stabilen Betrieb
+        der Website). Auf diese Logfiles haben wir keinen direkten Einfluss.
+      </p>
+      <p>
+        Weitere Informationen zum Datenschutz bei GitHub finden Sie unter:<br>
+        <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement"
+           target="_blank" rel="noopener noreferrer">
+          GitHub Privacy Statement
+        </a>
+      </p>
+    </div>
 
-    <h2>3. Keine Cookies / Tracking</h2>
-    <p>
-      Diese Website setzt keine eigenen Cookies und verwendet keinerlei Tracking- oder
-      Analyse-Tools. Es werden keine personenbezogenen Daten durch uns aktiv erhoben,
-      gespeichert oder weitergegeben.
-    </p>
+    <div class="content-block">
+      <h3>3. Datenübertragung in Drittländer</h3>
+      <p>
+        Durch das Hosting bei GitHub, Inc. (USA) werden personenbezogene Daten in die USA übermittelt.
+        GitHub unterliegt dem EU-U.S. Data Privacy Framework. Rechtsgrundlage für die Übermittlung ist
+        Art. 45 DSGVO (Angemessenheitsbeschluss der EU-Kommission) bzw. Art. 46 DSGVO
+        (Standardvertragsklauseln).
+      </p>
+    </div>
 
-    <h2>4. Ihre Rechte</h2>
-    <p>
-      Sie haben gemäß DSGVO das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der
-      Verarbeitung sowie das Recht auf Datenübertragbarkeit. Darüber hinaus steht Ihnen ein
-      Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde zu.
-    </p>
+    <div class="content-block">
+      <h3>4. Externe Schriftarten (Google Fonts)</h3>
+      <p>
+        Diese Website nutzt zur einheitlichen Darstellung von Schriftarten sogenannte
+        Google Fonts, bereitgestellt von Google Ireland Limited, Gordon House, Barrow Street,
+        Dublin 4, Irland (bzw. Google LLC, USA).
+      </p>
+      <p>
+        Beim Aufrufen dieser Seite baut Ihr Browser eine direkte Verbindung zu den Servern
+        von Google auf und lädt die benötigten Schriftarten. Dabei wird Ihre IP-Adresse an
+        Google übermittelt. Die Nutzung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO
+        (berechtigtes Interesse an einer einheitlichen und ansprechenden Darstellung).
+      </p>
+      <p>
+        Weitere Informationen finden Sie in der
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+          Datenschutzerklärung von Google</a> sowie unter
+        <a href="https://developers.google.com/fonts/faq" target="_blank" rel="noopener noreferrer">
+          Google Fonts FAQ</a>.
+      </p>
+    </div>
 
-    <h2>5. Aktualität dieser Erklärung</h2>
-    <p>
-      Diese Datenschutzerklärung hat den Stand: Mai 2026. Wir behalten uns vor, sie bei Bedarf
-      anzupassen.
-    </p>
-  </section>
+    <div class="content-block">
+      <h3>5. Keine weiteren Cookies / Tracking</h3>
+      <p>
+        Diese Website setzt keine eigenen Cookies und verwendet keinerlei Tracking- oder
+        Analyse-Tools. Es werden keine personenbezogenen Daten durch uns aktiv erhoben,
+        gespeichert oder weitergegeben.
+      </p>
+    </div>
 
-</main>
-<footer>
-  &copy; 2026 Arina Bondar-Nehls · arinacoacht
-</footer>
+    <div class="content-block">
+      <h3>6. SSL-/TLS-Verschlüsselung</h3>
+      <p>
+        Diese Seite nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung.
+        Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers
+        von „http://" auf „https://" wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.
+      </p>
+    </div>
+
+    <div class="content-block">
+      <h3>7. Ihre Rechte</h3>
+      <p>Sie haben gemäß DSGVO folgende Rechte:</p>
+      <ul>
+        <li><strong>Auskunft</strong> (Art. 15 DSGVO) — über die von uns verarbeiteten Daten</li>
+        <li><strong>Berichtigung</strong> (Art. 16 DSGVO) — unrichtiger Daten</li>
+        <li><strong>Löschung</strong> (Art. 17 DSGVO) — Recht auf Vergessenwerden</li>
+        <li><strong>Einschränkung</strong> (Art. 18 DSGVO) — der Verarbeitung</li>
+        <li><strong>Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
+        <li><strong>Widerspruch</strong> (Art. 21 DSGVO) — gegen die Verarbeitung</li>
+      </ul>
+      <p>
+        Zur Ausübung Ihrer Rechte wenden Sie sich an:
+        <span id="email-rechte"></span>
+      </p>
+      <p>
+        Darüber hinaus steht Ihnen ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde zu.
+        Die zuständige Aufsichtsbehörde ist der Unabhängige Landeszentrum für Datenschutz
+        Schleswig-Holstein (ULD).
+      </p>
+    </div>
+
+    <div class="content-block">
+      <h3>8. Aktualität dieser Erklärung</h3>
+      <p>
+        Diese Datenschutzerklärung hat den Stand: Mai 2026. Wir behalten uns vor, sie bei Bedarf
+        anzupassen.
+      </p>
+    </div>
+  </div>
+
+  <!-- Closing -->
+  <div class="closing">
+    <p>&copy; 2026 Arina Bondar-Nehls &middot; arinacoacht</p>
+  </div>
+
+</div>
+
+<script>
+(function() {
+  var n = ['Arina',' Bondar','-Nehls'];
+  var s = ['Buckh\u00f6rner',' Moor',' 18e'];
+  var c = ['22846',' Norderstedt'];
+  var name = n.join('');
+  var street = s.join('');
+  var city = c.join('');
+  var addr = name + '<br>' + street + '<br>' + city;
+
+  var ep = ['dioden','_ahnung','.2t'];
+  var ed = ['icloud','.com'];
+  var email = ep.join('') + '@' + ed.join('');
+  var mailLink = '<a href="ma' + 'ilto:' + email + '">' + email + '</a>';
+
+  var ab = document.getElementById('addr-block');
+  if (ab) ab.innerHTML = addr;
+  var ei = document.getElementById('email-impressum');
+  if (ei) ei.innerHTML = mailLink;
+
+  var ad = document.getElementById('addr-dsgvo');
+  if (ad) ad.innerHTML = addr;
+  var edv = document.getElementById('email-dsgvo');
+  if (edv) edv.innerHTML = mailLink;
+
+  var er = document.getElementById('email-rechte');
+  if (er) er.innerHTML = mailLink;
+})();
+</script>
 </body>
 </html>
